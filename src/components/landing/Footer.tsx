@@ -10,22 +10,22 @@ const Footer = () => {
           {/* Company */}
           <div>
             <h3 className="font-bold text-2xl mb-6">
-              <span className="text-tiercel-gold">Tiercel</span> Consulting
+              <span className="text-tiercel-red">Tiercel</span> Consulting
             </h3>
             <p className="text-white/70 mb-6">
               Your trusted partner for study abroad guidance, helping Pakistani students achieve their international education dreams.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+              <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+              <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+              <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+              <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                 <Twitter size={20} />
               </a>
             </div>
@@ -38,27 +38,27 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/#services" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Link to="/#services" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link to="/#about" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Link to="/#about" className="text-white/70 hover:text-tiercel-red transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/#testimonials" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Link to="/#testimonials" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Success Stories
                 </Link>
               </li>
               <li>
-                <Link to="/consultation" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Link to="/consultation" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Book Consultation
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Privacy Policy
                 </a>
               </li>
@@ -72,27 +72,27 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   University Selection
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Visa Guidance
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Scholarship Support
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Post-Admission Counseling
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <a href="#" className="text-white/70 hover:text-tiercel-red transition-colors">
                   Career Counseling
                 </a>
               </li>
@@ -106,20 +106,20 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={20} className="text-tiercel-gold shrink-0 mt-1" />
+                <MapPin size={20} className="text-tiercel-red shrink-0 mt-1" />
                 <span className="text-white/70">
                   123 Education Avenue, Islamabad, Pakistan
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={20} className="text-tiercel-gold shrink-0" />
-                <a href="tel:+923001234567" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Phone size={20} className="text-tiercel-red shrink-0" />
+                <a href="tel:+923001234567" className="text-white/70 hover:text-tiercel-red transition-colors">
                   +92 300 123 4567
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={20} className="text-tiercel-gold shrink-0" />
-                <a href="mailto:info@tiercelconsulting.com" className="text-white/70 hover:text-tiercel-gold transition-colors">
+                <Mail size={20} className="text-tiercel-red shrink-0" />
+                <a href="mailto:info@tiercelconsulting.com" className="text-white/70 hover:text-tiercel-red transition-colors">
                   info@tiercelconsulting.com
                 </a>
               </li>

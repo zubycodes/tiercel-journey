@@ -64,8 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				tiercel: {
+					white: '#FFF',
 					blue: '#0A2342',
-					gold: '#E6AF2E',
+					red: '#E04448',
 					light: '#F5F5F5',
 					gray: '#E0E0E0',
 					dark: '#333333'

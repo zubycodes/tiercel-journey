@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <section id="services" ref={sectionRef} className="section-container bg-white">
       <div className="text-center mb-16">
-        <h6 className="text-tiercel-gold font-semibold mb-2 reveal">OUR SERVICES</h6>
+        <h6 className="text-tiercel-red font-semibold mb-2 reveal">OUR SERVICES</h6>
         <h2 className="section-heading reveal reveal-delay-100">Comprehensive Education Consulting</h2>
         <p className="max-w-2xl mx-auto text-lg text-tiercel-dark/80 mt-4 reveal reveal-delay-200">
           We guide Pakistani students through every step of the international education journey.
@@ -92,25 +92,25 @@ const Services = () => {
       <div className="mt-24 bg-tiercel-blue/5 p-8 rounded-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h6 className="text-tiercel-gold font-semibold mb-2 reveal">WHY CHOOSE US</h6>
+            <h6 className="text-tiercel-red font-semibold mb-2 reveal">WHY CHOOSE US</h6>
             <h2 className="text-2xl md:text-3xl font-bold text-tiercel-blue mb-6 reveal reveal-delay-100">The Tiercel Difference</h2>
             <div className="space-y-4 reveal reveal-delay-200">
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center shrink-0 mt-1">1</div>
+                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center shrink-0 mt-1">1</div>
                 <div>
                   <h4 className="font-semibold text-tiercel-blue">Personalized Approach</h4>
                   <p className="text-sm text-tiercel-dark/70">Unlike generic consultancies, we develop custom strategies for each student based on their unique academic profile and ambitions.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center shrink-0 mt-1">2</div>
+                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center shrink-0 mt-1">2</div>
                 <div>
                   <h4 className="font-semibold text-tiercel-blue">Direct University Relationships</h4>
                   <p className="text-sm text-tiercel-dark/70">We maintain strong partnerships with admissions offices at top institutions in the US, UK, and Ireland.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center shrink-0 mt-1">3</div>
+                <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center shrink-0 mt-1">3</div>
                 <div>
                   <h4 className="font-semibold text-tiercel-blue">End-to-End Support</h4>
                   <p className="text-sm text-tiercel-dark/70">From initial consultation to arrival at your institution, we provide continuous guidance and support.</p>

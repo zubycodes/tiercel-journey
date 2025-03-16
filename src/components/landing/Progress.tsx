@@ -76,7 +76,7 @@ const Progress = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
             <div key={index} className={`text-center p-6 rounded-xl glass-panel reveal reveal-delay-${index * 100}`}>
-              <div className="text-4xl font-bold text-tiercel-gold mb-2">{stat.value}</div>
+              <div className="text-4xl font-bold text-tiercel-red mb-2">{stat.value}</div>
               <div className="text-white/80">{stat.label}</div>
             </div>
           ))}
@@ -84,7 +84,7 @@ const Progress = () => {
         
         {/* Testimonials */}
         <div className="text-center mb-12">
-          <h6 className="text-tiercel-gold font-semibold mb-2 reveal">SUCCESS STORIES</h6>
+          <h6 className="text-tiercel-red font-semibold mb-2 reveal">SUCCESS STORIES</h6>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 reveal reveal-delay-100">
             Hear From Our Students
           </h2>
@@ -99,7 +99,7 @@ const Progress = () => {
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
                   <div className="glass-panel rounded-2xl p-8 h-full">
-                    <Quote className="text-tiercel-gold mb-4 opacity-60" size={32} />
+                    <Quote className="text-tiercel-red mb-4 opacity-60" size={32} />
                     <p className="text-lg mb-8 text-white/90 italic">"{testimonial.content}"</p>
                     <div className="flex items-center justify-center">
                       <img 

@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="font-bold text-2xl text-tiercel-gold">Tiercel</span>
+          <span className="font-bold text-2xl text-tiercel-red">Tiercel</span>
           <span className="font-medium text-white">Consulting</span>
         </Link>
 
@@ -50,8 +50,20 @@ const Navbar = () => {
           <Link to="/#testimonials" className="text-white/90 hover:text-white transition-colors">
             Success Stories
           </Link>
-          <Link 
-            to="/consultation" 
+          <Link to="/destinations" className="text-white/90 hover:text-white transition-colors"> {/* Add Destinations link */}
+            Destinations
+          </Link>
+          <Link to="/ielts" className="text-white/90 hover:text-white transition-colors">
+            IELTS
+          </Link>
+          <Link to="/pte" className="text-white/90 hover:text-white transition-colors">
+            PTE
+          </Link>
+          <Link to="/blog" className="text-white/90 hover:text-white transition-colors">
+            Blog
+          </Link>
+          <Link
+            to="/consultation"
             className="btn-primary"
           >
             Start Your Journey
@@ -92,8 +104,36 @@ const Navbar = () => {
             >
               Success Stories
             </Link>
-            <Link 
-              to="/consultation" 
+            <Link
+              to="/destinations"
+              className="text-white/90 hover:text-white py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Destinations
+            </Link>
+            <Link
+              to="/ielts"
+              className="text-white/90 hover:text-white py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              IELTS
+            </Link>
+            <Link
+              to="/pte"
+              className="text-white/90 hover:text-white py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              PTE
+            </Link>
+            <Link
+              to="/blog"
+              className="text-white/90 hover:text-white py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
+              to="/consultation"
               className="btn-primary mx-4 text-center"
               onClick={() => setIsOpen(false)}
             >

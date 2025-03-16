@@ -45,11 +45,11 @@ const Consultation = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-tiercel-light pt-24 pb-16">
+    <div className="min-h-screen bg-tiercel-light pt-10 pb-16">
       <div className="max-w-6xl mx-auto px-4">
         <Link 
           to="/" 
-          className="inline-flex items-center text-tiercel-blue hover:text-tiercel-gold transition-colors mb-8"
+          className="inline-flex items-center text-tiercel-blue hover:text-tiercel-red transition-colors mb-4"
         >
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
@@ -58,7 +58,7 @@ const Consultation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form Section */}
           <div className={`bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <div className="p-8">
+            <div className="px-8 py-4">
               <h1 className="text-3xl font-bold text-tiercel-blue mb-2">Start Your Journey</h1>
               <p className="text-tiercel-dark/70 mb-8">Fill out the form below and one of our consultants will contact you shortly.</p>
               
@@ -84,7 +84,7 @@ const Consultation = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -98,7 +98,7 @@ const Consultation = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -114,7 +114,7 @@ const Consultation = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -127,7 +127,7 @@ const Consultation = () => {
                         required
                         value={formData.country}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       >
                         <option value="US">United States</option>
                         <option value="UK">United Kingdom</option>
@@ -149,7 +149,7 @@ const Consultation = () => {
                       value={formData.education}
                       onChange={handleChange}
                       placeholder="e.g., Bachelor's in Computer Science"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                      className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                     />
                   </div>
                   
@@ -164,7 +164,7 @@ const Consultation = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your education goals..."
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
+                      className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                     />
                   </div>
                   
@@ -188,7 +188,7 @@ const Consultation = () => {
               <div className="bg-white rounded-xl p-6">
                 <ol className="space-y-6">
                   <li className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center font-bold">
                       1
                     </div>
                     <div>
@@ -199,7 +199,7 @@ const Consultation = () => {
                     </div>
                   </li>
                   <li className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center font-bold">
                       2
                     </div>
                     <div>
@@ -210,7 +210,7 @@ const Consultation = () => {
                     </div>
                   </li>
                   <li className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-gold flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center font-bold">
                       3
                     </div>
                     <div>
@@ -231,7 +231,7 @@ const Consultation = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                    <Download className="text-tiercel-gold" size={24} />
+                    <Download className="text-tiercel-red" size={24} />
                   </div>
                   <div>
                     <h3 className="font-bold">Download Our Free Guide</h3>

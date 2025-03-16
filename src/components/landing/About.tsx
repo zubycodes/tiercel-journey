@@ -55,7 +55,7 @@ const About = () => {
           
           {/* Content Section */}
           <div>
-            <h6 className="text-tiercel-gold font-semibold mb-2 reveal">ABOUT US</h6>
+            <h6 className="text-tiercel-red font-semibold mb-2 reveal">ABOUT US</h6>
             <h2 className="section-heading reveal reveal-delay-100">Soaring to New Heights</h2>
             <div className="space-y-6">
               <p className="text-lg text-tiercel-dark/80 reveal reveal-delay-200">
@@ -66,28 +66,28 @@ const About = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
                 <div className="flex items-start gap-3 reveal reveal-delay-300">
-                  <CheckCircle className="text-tiercel-gold shrink-0 mt-1" size={22} />
+                  <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Expert Guidance</h4>
                     <p className="text-sm text-tiercel-dark/70">From professionals with decades of experience</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal reveal-delay-400">
-                  <CheckCircle className="text-tiercel-gold shrink-0 mt-1" size={22} />
+                  <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Personalized Approach</h4>
                     <p className="text-sm text-tiercel-dark/70">Tailored strategies for each student's needs</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal reveal-delay-500">
-                  <CheckCircle className="text-tiercel-gold shrink-0 mt-1" size={22} />
+                  <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Proven Results</h4>
                     <p className="text-sm text-tiercel-dark/70">90% success rate for visa applications</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal reveal-delay-600">
-                  <CheckCircle className="text-tiercel-gold shrink-0 mt-1" size={22} />
+                  <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Comprehensive Support</h4>
                     <p className="text-sm text-tiercel-dark/70">From application to arrival and beyond</p>

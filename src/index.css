@@ -115,7 +115,7 @@
   }
   
   .btn-primary {
-    @apply bg-tiercel-gold text-tiercel-blue font-medium px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+    @apply bg-tiercel-red text-tiercel-white font-medium px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
   }
   
   .text-balance {
@@ -123,12 +123,12 @@
   }
   
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-8 text-tiercel-blue relative inline-block;
+    @apply text-3xl md:text-4xl z-10 font-bold mb-8 text-tiercel-blue relative inline-block;
   }
   
   .section-heading::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-1 bg-tiercel-gold w-1/3 rounded-full;
+    @apply absolute bottom-0 mt-2 -z-10 left-0 h-[0.2rem] bg-tiercel-red w-1/3 rounded-full;
   }
   
   .section-container {
@@ -209,7 +209,7 @@
   transition-delay: 500ms;
 }
 
-/* Gold gradient for special elements */
-.gold-gradient {
+/* red gradient for special elements */
+.red-gradient {
   background: linear-gradient(45deg, #E6AF2E, #F2C94C);
 }
