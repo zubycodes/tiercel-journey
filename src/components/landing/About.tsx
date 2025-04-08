@@ -60,7 +60,7 @@ const About = () => {
             <div className="space-y-6">
               <p className="text-lg text-tiercel-dark/80 reveal reveal-delay-200">
                 Tiercel Consulting takes its name from the male falcon—swift, precise, and reliable. 
-                Like our namesake, we help Pakistani students navigate the complex journey of studying abroad with 
+                Like our namesake, we help students navigate the complex journey of studying abroad with 
                 speed and accuracy, guiding them to prestigious institutions in the US, UK, and Ireland.
               </p>
               
@@ -76,14 +76,14 @@ const About = () => {
                   <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Personalized Approach</h4>
-                    <p className="text-sm text-tiercel-dark/70">Tailored strategies for each student's needs</p>
+                    <p className="text-sm text-tiercel-dark/70">Tailored guidance for each student's needs</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal reveal-delay-500">
                   <CheckCircle className="text-tiercel-red shrink-0 mt-1" size={22} />
                   <div>
                     <h4 className="font-semibold text-tiercel-blue">Proven Results</h4>
-                    <p className="text-sm text-tiercel-dark/70">90% success rate for visa applications</p>
+                    <p className="text-sm text-tiercel-dark/70">100% success rate for visa applications</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal reveal-delay-600">

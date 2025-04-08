@@ -14,26 +14,26 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       const revealElements = document.querySelectorAll('.reveal');
-      
+
       revealElements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        
+
         if (elementTop < windowHeight * 0.85) {
           element.classList.add('active');
         }
       });
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     // Initial check on load
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   // Popup subscription form
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -43,10 +43,10 @@ const Index = () => {
         popupElement.classList.add('flex');
       }
     }, 10000);
-    
+
     return () => clearTimeout(timer);
   }, []);
-  
+
   const closePopup = () => {
     const popupElement = document.getElementById('subscription-popup');
     if (popupElement) {
@@ -62,8 +62,8 @@ const Index = () => {
       <Services />
       <About />
       <Progress />
-      <TrustSignals />
-      
+      {/* <TrustSignals /> */}
+
       {/* Newsletter Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -73,23 +73,23 @@ const Index = () => {
           <p className="text-lg text-tiercel-dark/70 max-w-2xl mx-auto mb-10">
             Get the latest updates on scholarship opportunities, university applications, and visa tips.
           </p>
-          
+
           <ContactForm />
         </div>
       </section>
-      
+
       <Footer />
-      
+
       {/* Subscription Popup */}
-      <div 
-        id="subscription-popup" 
+      <div
+        id="subscription-popup"
         className="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm items-center justify-center p-4"
         onClick={(e) => {
           if (e.target === e.currentTarget) closePopup();
         }}
       >
         <div className="relative max-w-md w-full animate-scale-up">
-          <button 
+          <button
             className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center z-10"
             onClick={closePopup}
           >

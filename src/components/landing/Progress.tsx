@@ -1,6 +1,5 @@
-
 import { useRef, useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Target, Globe, Award, BookOpen } from 'lucide-react';
 
 const testimonials = [
   {
@@ -26,11 +25,27 @@ const testimonials = [
   }
 ];
 
-const stats = [
-  { value: '50+', label: 'Students Admitted to Top Universities in 2024' },
-  { value: '90%', label: 'Visa Success Rate' },
-  { value: '75%', label: 'Students Received Scholarships' },
-  { value: '100%', label: 'Satisfaction Rate' }
+const motivationalContent = [
+  { 
+    icon: <Target className="text-tiercel-red" size={28} />, 
+    title: "Dream Big", 
+    content: "Your ambitions have no limits. We're here to help you reach even the most prestigious institutions worldwide." 
+  },
+  { 
+    icon: <Globe className="text-tiercel-red" size={28} />, 
+    title: "Global Perspective", 
+    content: "Education transcends borders. We'll guide you through every step of your international academic journey." 
+  },
+  { 
+    icon: <Award className="text-tiercel-red" size={28} />, 
+    title: "Excellence Assured", 
+    content: "We're committed to excellence in every application, interview, and personal statement we help craft." 
+  },
+  { 
+    icon: <BookOpen className="text-tiercel-red" size={28} />, 
+    title: "Continuous Growth", 
+    content: "Your education is just the beginning. We prepare you for a lifetime of learning and achievement." 
+  }
 ];
 
 const Progress = () => {
@@ -72,12 +87,20 @@ const Progress = () => {
   return (
     <section id="testimonials" ref={sectionRef} className="section-container bg-tiercel-blue text-white">
       <div className="max-w-7xl mx-auto">
-        {/* Stats */}
+        {/* Motivational Content */}
+        <div className="text-center mb-12">
+          <h6 className="text-tiercel-red font-semibold mb-2 reveal">OUR PHILOSOPHY</h6>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 reveal reveal-delay-100">
+            Empowering Your Academic Journey
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
+          {motivationalContent.map((item, index) => (
             <div key={index} className={`text-center p-6 rounded-xl glass-panel reveal reveal-delay-${index * 100}`}>
-              <div className="text-4xl font-bold text-tiercel-red mb-2">{stat.value}</div>
-              <div className="text-white/80">{stat.label}</div>
+              <div className="flex justify-center mb-4">{item.icon}</div>
+              <h3 className="text-xl font-bold text-tiercel-gold mb-3">{item.title}</h3>
+              <p className="text-white/80">{item.content}</p>
             </div>
           ))}
         </div>

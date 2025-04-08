@@ -132,7 +132,7 @@
   }
   
   .section-container {
-    @apply py-24 px-4 md:px-8 max-w-7xl mx-auto;
+    @apply py-24 px-4 md:px-8 mx-auto;
   }
   
   .delayed-fade-in {
