@@ -25,21 +25,49 @@ const Consultation = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to a server
-    setIsSubmitted(true);
-    
-    // Reset form after success message
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        country: 'US',
-        education: '',
-        message: '',
-      });
-    }, 5000);
+    // Send form data to the server
+    fetch('http://13.239.184.38:6500/inquiries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        full_name: formData.name,
+        email_address: formData.email,
+        phone_number: formData.phone,
+        desired_country: formData.country,
+        current_education_level: formData.education,
+        message: formData.message,
+      }),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      setIsSubmitted(true);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle error appropriately (e.g., display an error message)
+    })
+    .finally(() => {
+      // Reset form after success message
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          country: 'US',
+          education: '',
+          message: '',
+        });
+      }, 5000);
+    });
   };
   
   useEffect(() => {

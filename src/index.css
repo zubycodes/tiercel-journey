@@ -213,3 +213,13 @@
 .red-gradient {
   background: linear-gradient(45deg, #E6AF2E, #F2C94C);
 }
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .observe-element {
+    transition: none !important;
+  }
+}

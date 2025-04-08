@@ -37,7 +37,7 @@ const Footer = () => {
     setIsPhoneOptionsOpen(!isPhoneOptionsOpen);
   };
   const genAI = new GoogleGenerativeAI(
-    "AIzaSyCqLago2Jcj02sW4r4M1LJW0kj73UgSYNw"
+    ""
   );
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",

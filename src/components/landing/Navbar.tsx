@@ -53,15 +53,15 @@ const Navbar = () => {
          {/*  <Link to="/pte" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
             PTE
           </Link> */}
-          <Link to="/#services" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-            Services
-          </Link>
+          <a href="/#services" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+                      Services
+                    </a>
           <a href="/#testimonials" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-            Success Stories
-          </a>
-          <Link to="/#about" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-            About Us
-          </Link>
+                      Success Stories
+                    </a>
+          <a href="/#about" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+                      About Us
+                    </a>
           <Link to="/blog" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
             Blog
           </Link>
@@ -86,27 +86,24 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg">
           <nav className="flex flex-col space-y-4">
-            <Link
-              to="/#services"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              to="/#about"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link
-              to="/#testimonials"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Success Stories
-            </Link>
+            <a
+                          href="/#services"
+                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+                        >
+                          Services
+                        </a>
+            <a
+                          href="/#about"
+                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+                        >
+                          About Us
+                        </a>
+            <a
+                          href="/#testimonials"
+                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+                        >
+                          Success Stories
+                        </a>
             <Link
               to="/destinations"
               className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
