@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +16,18 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 bg-white',
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 bg-white",
         {
-          'shadow-sm': scrolled,
+          "shadow-sm": scrolled,
         }
       )}
     >
@@ -36,39 +35,61 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2">
           {/* <span className="font-bold text-2xl text-tiercel-red">Tiercel</span>
           <span className="font-medium text-tiercel-blue">Consulting</span> */}
-          <img src="https://tierceledconsulting.com/wp-content/uploads/2025/01/cropped-Main-Logo.png" style={{ 'width': '60%' }} alt="" />
+          <img
+            src="https://tierceledconsulting.com/wp-content/uploads/2025/01/cropped-Main-Logo.png"
+            style={{ width: "60%" }}
+            alt=""
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+          <Link
+            to="/"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
             Home
           </Link>
-          <Link to="/destinations" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+          <Link
+            to="/destinations"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
             Destinations
           </Link>
-          <Link to="/ielts" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+          <Link
+            to="/ielts"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
             IELTS
           </Link>
-         {/*  <Link to="/pte" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+          {/*  <Link to="/pte" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
             PTE
           </Link> */}
-          <a href="/#services" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-                      Services
-                    </a>
-          <a href="/#testimonials" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-                      Success Stories
-                    </a>
-          <a href="/#about" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
-                      About Us
-                    </a>
-          <Link to="/blog" className="text-tiercel-blue hover:text-tiercel-red transition-colors">
+          <a
+            href="/#services"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
+            Services
+          </a>
+          <a
+            href="/#testimonials"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
+            Success Stories
+          </a>
+          <a
+            href="/#about"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
+            About Us
+          </a>
+          <Link
+            to="/blog"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
             Blog
           </Link>
-          <Link
-            to="/consultation"
-            className="btn-primary bg-tiercel-blue/90"
-          >
+          <Link to="/consultation" className="btn-primary bg-tiercel-blue/90">
             Virtual Consultation
           </Link>
         </nav>
@@ -87,23 +108,23 @@ const Navbar = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg">
           <nav className="flex flex-col space-y-4">
             <a
-                          href="/#services"
-                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-                        >
-                          Services
-                        </a>
+              href="/#services"
+              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+            >
+              Services
+            </a>
             <a
-                          href="/#about"
-                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-                        >
-                          About Us
-                        </a>
+              href="/#about"
+              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+            >
+              About Us
+            </a>
             <a
-                          href="/#testimonials"
-                          className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-                        >
-                          Success Stories
-                        </a>
+              href="/#testimonials"
+              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+            >
+              Success Stories
+            </a>
             <Link
               to="/destinations"
               className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"

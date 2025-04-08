@@ -36,9 +36,7 @@ const Footer = () => {
   const togglePhoneOptions = () => {
     setIsPhoneOptionsOpen(!isPhoneOptionsOpen);
   };
-  const genAI = new GoogleGenerativeAI(
-    ""
-  );
+  const genAI = new GoogleGenerativeAI("");
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     systemInstruction: `You are a knowledgeable study abroad consultant at Tiercel Consulting. 
@@ -311,8 +309,8 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Tiercel Consulting. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Tiercel Education Consulting.
+            Powered by Process Junction Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </div>
