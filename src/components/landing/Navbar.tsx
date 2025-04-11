@@ -105,73 +105,58 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg text-white">
           <nav className="flex flex-col space-y-4">
-            <a
-              href="/#services"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+           <Link
+              to="/"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
             >
-              Services
-            </a>
-            <a
-              href="/#about"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-            >
-              About Us
-            </a>
-            <a
-              href="/#testimonials"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-            >
-              Success Stories
-            </a>
+              Home
+            </Link>
             <Link
               to="/destinations"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Destinations
             </Link>
             <Link
-              to="/services"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              to="/aboutus"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link
               to="/ielts"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               IELTS
             </Link>
-            <Link
-              to="/pte"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+            <a
+              href="/#services"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              PTE
-            </Link>
+              Services
+            </a>
+            <a
+              href="/#testimonials"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Success Stories
+            </a>
+            <a
+              href="/#about"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </a>
             <Link
               to="/blog"
-              className="text-tiercel-blue hover:text-tiercel-red py-2 px-4 transition-colors"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Blog
             </Link>
-            <Link
-              to="/consultation"
-              className="btn-primary text-center"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link to="/consultation" className="btn-primary text-center"  onClick={() => setIsOpen(false)}>
               Virtual Consultation
             </Link>
           </nav>

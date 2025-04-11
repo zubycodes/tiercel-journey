@@ -1,35 +1,38 @@
-
-import Navbar from '../components/landing/Navbar';
-import Footer from '../components/landing/Footer';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Download, Check } from 'lucide-react';
+import Navbar from "../components/landing/Navbar";
+import Footer from "../components/landing/Footer";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, Download, Check } from "lucide-react";
 
 const Consultation = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    country: 'US',
-    education: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    country: "US",
+    education: "",
+    message: "",
   });
-  
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Send form data to the server
-    fetch('http://13.239.184.38:6500/inquiries', {
-      method: 'POST',
+    fetch("http://13.239.184.38:6500/inquiries", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         full_name: formData.name,
@@ -40,36 +43,36 @@ const Consultation = () => {
         message: formData.message,
       }),
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Success:', data);
-      setIsSubmitted(true);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle error appropriately (e.g., display an error message)
-    })
-    .finally(() => {
-      // Reset form after success message
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          country: 'US',
-          education: '',
-          message: '',
-        });
-      }, 5000);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        setIsSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error appropriately (e.g., display an error message)
+      })
+      .finally(() => {
+        // Reset form after success message
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            country: "US",
+            education: "",
+            message: "",
+          });
+        }, 5000);
+      });
   };
-  
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -85,30 +88,53 @@ const Consultation = () => {
             <ArrowLeft size={16} className="mr-2" />
             Back to Home
           </Link>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* style={{ backgroundImage: `url('https://tierceledconsulting.com/wp-content/uploads/img/vc.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', opacity:0.90 }}  */}
             {/* Form Section  */}
-            <div 
-            className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            <div
+              className={`rounded-2xl shadow-xl overflow-hidden transition-all duration-1000 transform ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
+              }`}
+            >
               <div
-            className={`px-8 py-4 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-                <h1 className="text-3xl font-bold text-tiercel-blue mb-2">Start Your Journey</h1>
-                <p className="text-tiercel-dark/70 mb-8">Fill out the form below and one of our consultants will contact you shortly.</p>
-                
+                className={`px-8 py-4 transition-all duration-1000 transform ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+              >
+                <h1 className="text-3xl font-bold text-tiercel-blue mb-2">
+                  Start Your Journey
+                </h1>
+                <p className="text-tiercel-dark/70 mb-8">
+                  Fill out the form below and one of our consultants will
+                  contact you shortly.
+                </p>
+
                 {isSubmitted ? (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Check className="text-green-600" size={32} />
                     </div>
-                    <h3 className="text-xl font-bold text-green-800 mb-2">Thank You!</h3>
-                    <p className="text-green-700">Your consultation request has been received. We'll contact you within 24 hours.</p>
+                    <h3 className="text-xl font-bold text-green-800 mb-2">
+                      Thank You!
+                    </h3>
+                    <p className="text-green-700">
+                      Your consultation request has been received. We'll contact
+                      you within 24 hours.
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-tiercel-dark mb-1">
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-tiercel-dark mb-1"
+                        >
                           Full Name *
                         </label>
                         <input
@@ -122,7 +148,10 @@ const Consultation = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-tiercel-dark mb-1">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-tiercel-dark mb-1"
+                        >
                           Email Address *
                         </label>
                         <input
@@ -136,10 +165,13 @@ const Consultation = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-tiercel-dark mb-1">
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium text-tiercel-dark mb-1"
+                        >
                           Phone Number
                         </label>
                         <input
@@ -152,7 +184,10 @@ const Consultation = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="country" className="block text-sm font-medium text-tiercel-dark mb-1">
+                        <label
+                          htmlFor="country"
+                          className="block text-sm font-medium text-tiercel-dark mb-1"
+                        >
                           Desired Country *
                         </label>
                         <select
@@ -172,9 +207,12 @@ const Consultation = () => {
                         </select>
                       </div>
                     </div>
-                    
+
                     <div className="mb-6">
-                      <label htmlFor="education" className="block text-sm font-medium text-tiercel-dark mb-1">
+                      <label
+                        htmlFor="education"
+                        className="block text-sm font-medium text-tiercel-dark mb-1"
+                      >
                         Current Education Level
                       </label>
                       <input
@@ -187,9 +225,12 @@ const Consultation = () => {
                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       />
                     </div>
-                    
+
                     <div className="mb-6">
-                      <label htmlFor="message" className="block text-sm font-medium text-tiercel-dark mb-1">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-tiercel-dark mb-1"
+                      >
                         Your Message
                       </label>
                       <textarea
@@ -202,7 +243,7 @@ const Consultation = () => {
                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-tiercel-gold focus:ring-1 focus:ring-tiercel-gold outline-none transition-all"
                       />
                     </div>
-                    
+
                     <button
                       type="submit"
                       className="w-full bg-tiercel-blue text-white font-medium px-6 py-3.5 rounded-lg hover:bg-tiercel-blue/90 transition-colors"
@@ -213,10 +254,16 @@ const Consultation = () => {
                 )}
               </div>
             </div>
-            
+
             {/* Info Section */}
             <div>
-              <div className={`mb-8 transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+              <div
+                className={`mb-8 transition-all duration-1000 delay-300 transform ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+              >
                 <h2 className="text-2xl font-bold text-tiercel-blue mb-4">
                   What Happens Next?
                 </h2>
@@ -227,9 +274,12 @@ const Consultation = () => {
                         1
                       </div>
                       <div>
-                        <h3 className="font-semibold text-tiercel-blue">Initial Call</h3>
+                        <h3 className="font-semibold text-tiercel-blue">
+                          Initial Call
+                        </h3>
                         <p className="text-sm text-tiercel-dark/70">
-                          One of our consultants will call you within 24 hours to understand your requirements.
+                          One of our consultants will call you within 24 hours
+                          to understand your requirements.
                         </p>
                       </div>
                     </li>
@@ -238,9 +288,12 @@ const Consultation = () => {
                         2
                       </div>
                       <div>
-                        <h3 className="font-semibold text-tiercel-blue">Strategy Session</h3>
+                        <h3 className="font-semibold text-tiercel-blue">
+                          Strategy Session
+                        </h3>
                         <p className="text-sm text-tiercel-dark/70">
-                          Schedule a comprehensive consultation to develop your personalized education plan.
+                          Schedule a comprehensive consultation to develop your
+                          personalized education plan.
                         </p>
                       </div>
                     </li>
@@ -249,17 +302,26 @@ const Consultation = () => {
                         3
                       </div>
                       <div>
-                        <h3 className="font-semibold text-tiercel-blue">Begin Your Journey</h3>
+                        <h3 className="font-semibold text-tiercel-blue">
+                          Begin Your Journey
+                        </h3>
                         <p className="text-sm text-tiercel-dark/70">
-                          Start working with your dedicated consultant to achieve your international education goals.
+                          Start working with your dedicated consultant to
+                          achieve your international education goals.
                         </p>
                       </div>
                     </li>
                   </ol>
                 </div>
               </div>
-              
-              <div className={`transition-all duration-1000 delay-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+
+              <div
+                className={`transition-all duration-1000 delay-500 transform ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+              >
                 <a
                   href="#"
                   className="block bg-tiercel-blue rounded-xl p-6 text-white hover:shadow-lg transition-shadow"
@@ -271,7 +333,8 @@ const Consultation = () => {
                     <div>
                       <h3 className="font-bold">Download Our Free Guide</h3>
                       <p className="text-white/70 text-sm">
-                        Get our comprehensive guide to top universities and admission requirements
+                        Get our comprehensive guide to top universities and
+                        admission requirements
                       </p>
                     </div>
                   </div>

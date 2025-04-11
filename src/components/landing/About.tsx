@@ -61,7 +61,7 @@ const About = () => {
               <p className="text-lg text-tiercel-dark/80 reveal reveal-delay-200">
                 Tiercel Consulting takes its name from the male falcon—swift, precise, and reliable. 
                 Like our namesake, we help students navigate the complex journey of studying abroad with 
-                speed and accuracy, guiding them to prestigious institutions in the US, UK, and Ireland.
+                speed and accuracy, guiding them to prestigious institutions in the UK, USA, Canada, Ireland, Australia, Europe.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">

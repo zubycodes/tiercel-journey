@@ -90,7 +90,7 @@ const Hero1 = () => {
         </h1>
 
         <p className={`text-lg md:text-xl text-tiercel-blue/80 mb-10 max-w-2xl mx-auto transition-all duration-1000 delay-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          Fast, personalized guidance for students seeking admission to top universities in the US, UK, and Ireland.
+          Fast, personalized guidance for students seeking admission to top universities in the UK, USA, Canada, Ireland, Australia, Europe.
         </p>
 
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>

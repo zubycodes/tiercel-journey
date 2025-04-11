@@ -113,7 +113,7 @@ const Services = () => {
                 <div className="w-6 h-6 rounded-full bg-tiercel-gold/20 text-tiercel-red flex items-center justify-center shrink-0 mt-1">2</div>
                 <div>
                   <h4 className="font-semibold text-white/90">Direct University Relationships</h4>
-                  <p className="text-sm text-white/70">We maintain strong partnerships with admissions offices at top institutions in the US, UK, and Ireland.</p>
+                  <p className="text-sm text-white/70">We maintain strong partnerships with admissions offices at top institutions in the UK, USA, Canada, Ireland, Australia, Europe.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

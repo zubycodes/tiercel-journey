@@ -32,7 +32,7 @@ const Herod = () => {
           </h1>
           
           <p className={`text-lg text-tiercel-blue/70 mb-8 max-w-xl transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            Fast, personalized guidance for students seeking admission to top universities in the US, UK, and Ireland.
+            Fast, personalized guidance for students seeking admission to top universities in the UK, USA, Canada, Ireland, Australia, Europe.
           </p>
           
           <div className={`transition-all duration-1000 delay-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>

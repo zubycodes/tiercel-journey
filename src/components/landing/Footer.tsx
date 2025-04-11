@@ -19,8 +19,10 @@ import {
   Link as LinkIcon,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const Footer = () => {
+  const [sessionId, setSessionId] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([
     { text: "Hello! How can I help you today?", sender: "ai" },
@@ -36,7 +38,12 @@ const Footer = () => {
   const togglePhoneOptions = () => {
     setIsPhoneOptionsOpen(!isPhoneOptionsOpen);
   };
-  const genAI = new GoogleGenerativeAI("");
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyCqLago2Jcj02sW4r4M1LJW0kj73UgSYNw"
+  );
+  const genSessionAI = new GoogleGenerativeAI(
+    "AIzaSyCqLago2Jcj02sW4r4M1LJW0kj73UgSYNw"
+  );
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     systemInstruction: `You are a knowledgeable study abroad consultant at Tiercel Consulting. 
@@ -79,6 +86,27 @@ const Footer = () => {
       },
     ],
   });
+
+  const sessionModel = genSessionAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
+    systemInstruction: `only respond in json object format so that i can parse your response. no code block just plain text of json object with the fields
+     title, description, status, tags, and notes. 
+          Only Respond in JSON object format in plain text (no code block)
+          Example response: 
+          {
+            title: '',
+            description: '',
+            status: '',
+            tags: '',
+            notes: ''
+          }`,
+    generationConfig: {
+      temperature: 0.9,
+      topK: 1,
+      topP: 1,
+      maxOutputTokens: 2048,
+    },
+  });
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -93,44 +121,243 @@ const Footer = () => {
       handleSendMessage();
     }
   };
+  const createSession = async () => {
+    try {
+      const sId = uuidv4();
+      const sessionResponse = await fetch(
+        "http://13.239.184.38:6500/sessions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            session_id: sId,
+            chat_title: "AI Generated Title",
+            description: "AI Generated Description",
+            status: "initial",
+            tags: "general",
+            notes: "none",
+          }),
+        }
+      );
+
+      if (!sessionResponse.ok) {
+        throw new Error(`HTTP error! status: ${sessionResponse.status}`);
+      }
+
+      const sessionData = await sessionResponse.json();
+      setSessionId(sId);
+      return sId;
+    } catch (error) {
+      console.error("Error creating session:", error);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          text: "Failed to create session. Please try again.",
+          sender: "ai",
+        },
+      ]);
+      setSendingMessage(false);
+      throw error;
+    }
+  };
+
+  const saveMessage = async (message, isBot, sessionId) => {
+    try {
+      const response = await fetch("http://13.239.184.38:6500/conversations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: isBot ? "AI Agent" : "User",
+          message_text: message,
+          is_bot: isBot,
+          session_id: sessionId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(`Error saving ${isBot ? "AI" : "user"} message:`, error);
+      throw error;
+    }
+  };
+
+  const generateAIResponse = async (message) => {
+    try {
+      const result = await model.generateContent(message);
+      return result.response.text();
+    } catch (error) {
+      console.error("Error generating content:", error);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          text: "Failed to get AI response. Please try again.",
+          sender: "ai",
+        },
+      ]);
+      throw error;
+    }
+  };
+
   const handleSendMessage = async () => {
     if (!sendingMessage && newMessage.trim() !== "") {
       setSendingMessage(true);
-      // Clear the input
       const message = newMessage;
       setNewMessage("");
-      // Add user message to the chat
-      setMessages([...messages, { text: message, sender: "user" }]);
-
-      // Simulate AI response (replace with actual API call later)
-      /* setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: `AI response to: ${newMessage}`, sender: "ai" },
-        ]);
-      }, 500); */
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: message, sender: "user" },
+      ]);
 
       try {
-        const result = await model.generateContent(message);
-        const responseText = result.response.text();
+        let currentSessionId = sessionId;
+        if (!currentSessionId) {
+          currentSessionId = await createSession();
+        }
 
-        // Add AI response to the chat
+        await saveMessage(message, false, currentSessionId);
+        const aiResponse = await generateAIResponse(message);
+        await saveMessage(aiResponse, true, currentSessionId);
+
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: responseText, sender: "ai" },
+          { text: aiResponse, sender: "ai" },
         ]);
+
+        updateSessionSummary(currentSessionId, messages);
       } catch (error) {
-        console.error("Error generating content:", error);
-        setMessages((prevMessages) => [
-          ...prevMessages,
+        // Errors handled in individual functions
+      } finally {
+        setSendingMessage(false);
+      }
+    }
+  };
+
+  const updateSessionSummary = async (sessionId, messages) => {
+    try {
+      // Prepare messages for the AI model
+      const chatHistory = messages
+        .map((msg) => `${msg.sender}: ${msg.text}`)
+        .join("\n");
+
+      const result = await sessionModel.generateContent(
+        `Analyze the following chat history and provide a title, description, status, tags, and notes. \n${chatHistory} 
+          Only Respond in JSON object format in plain text (no code block)
+          Example response: 
           {
-            text: "Failed to get AI response. Please try again.",
-            sender: "ai",
-          },
-        ]);
+            title: '',
+            description: '',
+            status: '',
+            tags: '',
+            notes: ''
+          }`
+      );
+      const responseText = result.response.text();
+
+      const jsonData = responseText
+        .replace("```json", "")
+        .replace("```", "")
+        .trim();
+
+      // Verify AI response is JSON and retry if not
+      let parsedResponse;
+      try {
+        parsedResponse = JSON.parse(jsonData);
+      } catch (error) {
+        console.error("Failed to parse JSON. Retrying...");
+        const retryResult = await sessionModel.generateContent(
+          `Analyze the following chat history and provide a title, description, status, tags, and notes. \n${chatHistory} 
+          Only Respond in JSON object format in plain text (no code block)
+          Example response: 
+          {
+            title: '',
+            description: '',
+            status: '',
+            tags: '',
+            notes: ''
+          }
+          `
+        );
+        const retryResponseText = retryResult.response.text();
+        const jsonData = retryResponseText
+          .replace("```json", "")
+          .replace("```", "")
+          .trim();
+        try {
+          parsedResponse = JSON.parse(jsonData);
+        } catch (retryError) {
+          console.error("Failed to parse JSON after retry. Using fallback.");
+          parsedResponse = null;
+        }
       }
 
-      setSendingMessage(false);
+      if (parsedResponse) {
+        // Parse the AI response
+        const { chat_title, description, status, tags, notes } = parsedResponse;
+        await updateSession(
+          sessionId,
+          chat_title,
+          description,
+          status,
+          tags,
+          notes
+        );
+      } else {
+        // Handle the case where JSON parsing failed even after retry
+        console.error("JSON parsing failed. Using fallback values.");
+        await updateSession(
+          sessionId,
+          "Fallback Title",
+          "Fallback Description",
+          "initial",
+          "general",
+          "none"
+        );
+      }
+    } catch (error) {
+      console.error("Error updating session:", error);
+    }
+  };
+
+  const updateSession = async (
+    sessionId,
+    chat_title,
+    description,
+    status,
+    tags,
+    notes
+  ) => {
+    try {
+      const response = await fetch(
+        `http://13.239.184.38:6500/sessions/${sessionId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_title: chat_title || "AI Generated Title",
+            description: description || "AI Generated Description",
+            status: status || "initial",
+            tags: tags || "general",
+            notes: notes || "none",
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const sessionData = await response.json();
+      console.log("Session updated successfully:", sessionData);
+    } catch (error) {
+      console.error("Error updating session:", error);
     }
   };
 
@@ -310,7 +537,14 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
           <p>
             &copy; {new Date().getFullYear()} Tiercel Education Consulting.
-            Powered by Process Junction Pvt. Ltd. All rights reserved.
+            Powered by{" "}
+            <a
+              href="https://www.processjunction.com"
+              className="text-white/70 hover:text-tiercel-red transition-colors"
+            >
+              ProcessJunction Pvt. Ltd
+            </a>
+            . All rights reserved.
           </p>
         </div>
       </div>
