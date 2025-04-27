@@ -19,6 +19,7 @@ import {
   Link as LinkIcon,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import { v4 as uuidv4 } from "uuid";
 
 const Footer = () => {
@@ -30,14 +31,6 @@ const Footer = () => {
   const [newMessage, setNewMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
   const [isPhoneOptionsOpen, setIsPhoneOptionsOpen] = useState(false);
-
-  const toggleChat = () => {
-    setIsChatOpen(!isChatOpen);
-  };
-
-  const togglePhoneOptions = () => {
-    setIsPhoneOptionsOpen(!isPhoneOptionsOpen);
-  };
   const genAI = new GoogleGenerativeAI(
     "AIzaSyCqLago2Jcj02sW4r4M1LJW0kj73UgSYNw"
   );
@@ -47,7 +40,7 @@ const Footer = () => {
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     systemInstruction: `You are a knowledgeable study abroad consultant at Tiercel Consulting. 
-
+ 
     Your role is to:
     - Provide accurate information about university selection, visa guidance, scholarship opportunities, and post-admission support
     - Answer questions about studying in different countries, focusing on application processes, requirements, and deadlines
@@ -108,7 +101,7 @@ const Footer = () => {
     },
   });
   const messagesEndRef = useRef(null);
-
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -125,7 +118,7 @@ const Footer = () => {
     try {
       const sId = uuidv4();
       const sessionResponse = await fetch(
-        "http://13.239.184.38:6500/sessions",
+        "https://artisan-psic.com/sessions",
         {
           method: "POST",
           headers: {
@@ -165,7 +158,7 @@ const Footer = () => {
 
   const saveMessage = async (message, isBot, sessionId) => {
     try {
-      const response = await fetch("http://13.239.184.38:6500/conversations", {
+      const response = await fetch("https://artisan-psic.com/conversations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -298,15 +291,8 @@ const Footer = () => {
 
       if (parsedResponse) {
         // Parse the AI response
-        const { chat_title, description, status, tags, notes } = parsedResponse;
-        await updateSession(
-          sessionId,
-          chat_title,
-          description,
-          status,
-          tags,
-          notes
-        );
+        const { title, description, status, tags, notes } = parsedResponse;
+        await updateSession(sessionId, title, description, status, tags, notes);
       } else {
         // Handle the case where JSON parsing failed even after retry
         console.error("JSON parsing failed. Using fallback values.");
@@ -334,7 +320,7 @@ const Footer = () => {
   ) => {
     try {
       const response = await fetch(
-        `http://13.239.184.38:6500/sessions/${sessionId}`,
+        `https://artisan-psic.com/sessions/${sessionId}`,
         {
           method: "PUT",
           headers: {
@@ -361,6 +347,51 @@ const Footer = () => {
     }
   };
 
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+  const togglePhoneOptions = () => {
+    setIsPhoneOptionsOpen(!isPhoneOptionsOpen);
+  };
+
+  const handleDemoClick = async () => {
+    const demoQuestions = [
+      "What are the best countries to study abroad for a student interested in computer science?",
+      "What are the admission requirements for top universities in Canada?",
+      "Can you tell me about scholarship opportunities for international students?",
+      "What is the visa application process like?",
+      "What kind of post-admission support do you offer?",
+    ];
+
+    let currentSessionId = sessionId;
+    if (!currentSessionId) {
+      currentSessionId = await createSession();
+    }
+
+    for (const question of demoQuestions) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: question, sender: "user" },
+      ]);
+
+      try {
+        await saveMessage(question, false, currentSessionId);
+        const aiResponse = await generateAIResponse(question);
+        await saveMessage(aiResponse, true, currentSessionId);
+
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: aiResponse, sender: "ai" },
+        ]);
+
+        updateSessionSummary(currentSessionId, messages);
+      } catch (error) {
+        console.error("Error in demo conversation:", error);
+      }
+    }
+  };
+
   return (
     <footer className="bg-tiercel-blue text-white">
       <div className="max-w-7xl mx-auto pt-16 pb-8 px-6">
@@ -376,18 +407,20 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/tierceled"
+                target="blank"
                 className="text-white/70 hover:text-tiercel-red transition-colors"
               >
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/tierceled"
+                target="blank"
                 className="text-white/70 hover:text-tiercel-red transition-colors"
               >
                 <Instagram size={20} />
               </a>
-              <a
+             {/*  <a
                 href="#"
                 className="text-white/70 hover:text-tiercel-red transition-colors"
               >
@@ -398,7 +431,7 @@ const Footer = () => {
                 className="text-white/70 hover:text-tiercel-red transition-colors"
               >
                 <Twitter size={20} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -615,7 +648,15 @@ const Footer = () => {
       {isChatOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-96 h-96 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="p-2 bg-tiercel-blue/90 text-white">
-            <h5 className="text-lg font-semibold m-0">AI Assistant</h5>
+            <h5 className="text-lg font-semibold m-0">
+              AI Assistant
+              {/* <button
+                className="ml-4 px-2 py-1 bg-tiercel-red text-white rounded-md text-sm hover:bg-red-700 transition-colors"
+                onClick={handleDemoClick}
+              >
+                Demo
+              </button> */}
+            </h5>
             <button
               className="absolute top-2 right-2 text-white hover:text-gray-200"
               onClick={toggleChat}
@@ -638,7 +679,20 @@ const Footer = () => {
                       : "text-tiercel-red"
                   }`}
                 >
-                  {message.text}
+                  {message.sender === "ai" ? (
+                    <TypeAnimation
+                    sequence={[
+                      message.text,
+                      () => setIsTypingComplete(true), 
+                    ]}
+                      speed={90}
+                      cursor={!isTypingComplete} 
+                      wrapper="div"
+                      className="bubble"
+                    />
+                  ) : (
+                    message.text
+                  )}
                 </span>
               </div>
             ))}

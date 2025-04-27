@@ -44,12 +44,12 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link
+          {/* <Link
             to="/"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
           >
             Home
-          </Link>
+          </Link> */}
           <Link
             to="/destinations"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
@@ -84,10 +84,10 @@ const Navbar = () => {
             About Us
           </a>
           <Link
-            to="/blog"
+            to="/#faqs"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
           >
-            Blog
+            FAQs
           </Link>
           <Link to="/consultation" className="btn-primary bg-tiercel-blue/90">
             Virtual Consultation
@@ -107,13 +107,13 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg text-white">
           <nav className="flex flex-col space-y-4">
-           <Link
+           {/* <Link
               to="/"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Home
-            </Link>
+            </Link> */}
             <Link
               to="/destinations"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
@@ -150,11 +150,11 @@ const Navbar = () => {
               About Us
             </a>
             <Link
-              to="/blog"
+              to="/faqs"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Blog
+              FAQs
             </Link>
             <Link to="/consultation" className="btn-primary text-center"  onClick={() => setIsOpen(false)}>
               Virtual Consultation

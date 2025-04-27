@@ -2,43 +2,43 @@ import { useState, useRef, useEffect } from "react";
 import { Check } from "lucide-react";
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch("http://13.239.184.38:6500/subscriptions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email_address: email
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Success:", data);
-        setShowSuccess(true);
-        })
-      .catch((error) => {
-        console.error("Error:", error);
-        // Handle error appropriately (e.g., display an error message)
-      })
-      .finally(() => {
-        // Reset form after success message
-        setTimeout(() => {
-          setShowSuccess(false);
-          setEmail("");
-        }, 5000);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://artisan-psic.com/subscriptions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email_address: email,
+        }),
       });
-    setTimeout(() => {}, 3000);
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      setShowSuccess(true);
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error appropriately (e.g., display an error message)
+    } finally {
+      setIsSubmitting(false);
+      // Reset form after success message
+      setTimeout(() => {
+        setShowSuccess(false);
+        setEmail("");
+      }, 5000);
+    }
   };
 
   useEffect(() => {
@@ -92,8 +92,13 @@ const ContactForm = () => {
         <button
           type="submit"
           className="w-full bg-tiercel-blue text-white font-medium px-6 py-3 rounded-lg hover:bg-tiercel-blue/90 transition-colors"
+          disabled={isSubmitting}
         >
-          {showSuccess ? (
+          {isSubmitting ? (
+            <span className="flex items-center justify-center gap-2 animate-spin">
+              ...
+            </span>
+          ) : showSuccess ? (
             <span className="flex items-center justify-center gap-2">
               <Check size={18} />
               Subscribed!
