@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Download, Check } from "lucide-react";
 
 const Consultation = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,8 +29,9 @@ const Consultation = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     // Send form data to the server
-    fetch("http://13.239.184.38:6500/inquiries", {
+    fetch("https://artisan-psic.com/inquiries", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,6 +60,7 @@ const Consultation = () => {
         // Handle error appropriately (e.g., display an error message)
       })
       .finally(() => {
+        setIsSubmitting(false);
         // Reset form after success message
         setTimeout(() => {
           setIsSubmitted(false);
@@ -246,9 +249,10 @@ const Consultation = () => {
 
                     <button
                       type="submit"
-                      className="w-full bg-tiercel-blue text-white font-medium px-6 py-3.5 rounded-lg hover:bg-tiercel-blue/90 transition-colors"
+                      className="w-full bg-tiercel-blue text-white font-medium px-6 py-3.5 rounded-lg hover:bg-tiercel-blue/90 transition-colors disabled:bg-tiercel-blue/50 disabled:cursor-not-allowed"
+                      disabled={isSubmitting}
                     >
-                      Submit Request
+                      {isSubmitting ? "Submitting..." : "Submit Request"}
                     </button>
                   </form>
                 )}
@@ -323,7 +327,7 @@ const Consultation = () => {
                 }`}
               >
                 <a
-                  href="#"
+                  href="https://tierceledconsulting.com/wp-content/uploads/img/guide.pdf"
                   className="block bg-tiercel-blue rounded-xl p-6 text-white hover:shadow-lg transition-shadow"
                 >
                   <div className="flex items-center gap-4">

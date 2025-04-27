@@ -8,6 +8,7 @@ import Progress from '../components/landing/Progress';
 import TrustSignals from '../components/landing/TrustSignals';
 import ContactForm from '../components/landing/ContactForm';
 import Footer from '../components/landing/Footer';
+import FAQs from '@/components/landing/FAQs';
 
 const Index = () => {
   // Scroll reveal functionality
@@ -62,6 +63,7 @@ const Index = () => {
       <Services />
       <About />
       <Progress />
+      <FAQs />
       {/* <TrustSignals /> */}
 
       {/* Newsletter Section */}
