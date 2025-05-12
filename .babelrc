@@ -1,0 +1,13 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current", // Target the current Node.js version for your main build
+                    "chrome": "58" // Target a Chromium version compatible with Puppeteer
+                }
+            }
+        ]
+    ]
+}
