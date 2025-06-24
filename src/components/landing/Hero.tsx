@@ -18,14 +18,14 @@ const Hero = () => {
 
   const renderHero = () => {
     switch (selectedHero) {
-      case "Hero1":
+      /* case "Hero1":
         return <Hero1 />;
       case "Hero2":
         return <Hero2 />;
       case "Herod":
         return <Herod />;
       case "Heroc":
-        return <Heroc />;
+        return <Heroc />; */
       default:
         return (
           <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
@@ -150,8 +150,8 @@ const Hero = () => {
               >
                 <CountryFlags />
                 <div className="text-center">
-                  <div className="bg-white shadow text-blue-700 font-bold px-4 py-1 rounded-md inline-block">
-                    IVY LEAGUE{" "}
+                  <div className="bg-transparent  text-blue-700 font-bold px-4 py-1 rounded-md inline-block">
+                    {/* IVY LEAGUE{" "} */}
                     <span className="bg-red-600 text-white px-2 ml-1 rounded-sm">
                       RUSSELL GROUP UNIVERSITIES
                     </span>

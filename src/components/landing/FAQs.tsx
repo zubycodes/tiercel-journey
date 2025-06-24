@@ -85,23 +85,23 @@ const FAQs = () => {
     <section
       id="faqs"
       ref={sectionRef}
-      className="section-container bg-tiercel-blue"
+      className="section-container"
     >
       {/* FAQs */}
-      <div className="bg-tiercel-blue/5 p-8 rounded-2xl">
+      <div className="p-8 rounded-2xl">
         <div className="text-center mb-16">
           <h6 className="text-tiercel-red font-bold mb-2 reveal">FAQs</h6>
-          <h2 className="section-heading reveal reveal-delay-100 text-white">
+          <h2 className="section-heading reveal reveal-delay-100 ">
             Frequently Asked Questions
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-8">
           {/* FAQ 1 */}
           <div className="reveal reveal-delay-200">
-            <h4 className="font-semibold text-white/90 mb-2">
+            <h4 className="font-semibold  mb-2">
               What services does Tiercel Education Consulting offer?
             </h4>
-            <p className="text-sm text-white/70">
+            <p className="text-sm ">
               We offer comprehensive consulting services, including university
               selection, application assistance, visa guidance, scholarship
               support, and career counseling.
@@ -109,10 +109,10 @@ const FAQs = () => {
           </div>
           {/* FAQ 2 */}
           <div className="reveal reveal-delay-300">
-            <h4 className="font-semibold text-white/90 mb-2">
+            <h4 className="font-semibold  mb-2">
               Which countries and universities do you specialize in?
             </h4>
-            <p className="text-sm text-white/70">
+            <p className="text-sm ">
               We specialize in universities in the UK, USA, Canada, Ireland,
               Australia, and Europe. Our consultants have extensive knowledge of
               the admission requirements for these regions.
@@ -120,10 +120,10 @@ const FAQs = () => {
           </div>
           {/* FAQ 3 */}
           <div className="reveal reveal-delay-400">
-            <h4 className="font-semibold text-white/90 mb-2">
+            <h4 className="font-semibold  mb-2">
               How does Tiercel Education Consulting personalize its services?
             </h4>
-            <p className="text-sm text-white/70">
+            <p className="text-sm ">
               We tailor our strategies to each student's unique academic
               profile, career goals, and personal preferences, ensuring a
               customized approach.
@@ -131,11 +131,11 @@ const FAQs = () => {
           </div>
           {/* FAQ 4 */}
           <div className="reveal reveal-delay-500">
-            <h4 className="font-semibold text-white/90 mb-2">
+            <h4 className="font-semibold  mb-2">
               What kind of support do you offer after a student is admitted to a
               university?
             </h4>
-            <p className="text-sm text-white/70">
+            <p className="text-sm ">
               We provide post-admission support, including guidance on travel
               arrangements, accommodation, and cultural adjustment to help
               students settle in smoothly.

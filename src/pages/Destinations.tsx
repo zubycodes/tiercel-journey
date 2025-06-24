@@ -6,84 +6,15 @@ import {
   BookOpen,
   Award,
   ChevronRight,
+  ChevronUp,
+  ChevronDown,
 } from "lucide-react";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 
-const destinations = [
+const destinations: any = [
   {
-    name: "United States",
-    src: "https://tierceledconsulting.com/wp-content/uploads/destinations/usa.jpeg",
-    description:
-      "Home to world-renowned universities and cutting-edge research institutions, the United States offers unparalleled educational opportunities across diverse fields.",
-
-    topFields: [
-      "Computer Science",
-      "Business",
-      "Engineering",
-      "Medical Sciences",
-    ],
-    // Add the logo data specifically for UK
-    partnerLogos: [
-      {
-        name: "California State University San Marcos",
-        href: "https://students.studygroup.com/study-options/direct-admit/california-state-university-san-marcos",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/c531ce33-bc53-4cf5-8fa3-9cc4912397b3/CSUSM.svg?lossless=true&auto=format",
-      },
-      {
-        name: "DePaul University",
-        href: "https://students.studygroup.com/study-options/direct-admit/depaul-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/cb8201a9-16c4-40a3-b306-61c51f2eff93/depaul.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Florida Atlantic University",
-        href: "https://students.studygroup.com/study-options/direct-admit/florida-atlantic-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/64d1125c-3d16-4ba8-9bd9-6d2aaaf8fd9c/fau-24.svg?lossless=true&auto=format",
-      },
-      {
-        name: "University of Hartford",
-        href: "https://students.studygroup.com/study-options/direct-admit/university-of-hartford",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/07956c35-d34f-40ce-82e4-498b46923256/hartford.svg?lossless=true&auto=format",
-      },
-      {
-        name: "James Madison University",
-        href: "https://students.studygroup.com/study-options/direct-admit/james-madison-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/e38a4c29-cbb9-414f-85fd-318f599e6c00/jmu.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Lipscomb University",
-        href: "https://students.studygroup.com/study-options/direct-admit/lipscomb-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/ef75327a-7771-45bd-9bcb-71c478ac3400/lipscomb.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Long Island University",
-        href: "https://students.studygroup.com/study-options/direct-admit/long-island-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/cf8951dd-5e42-4709-b437-bdfdd192b47d/liu.svg?lossless=true&auto=format",
-      },
-      {
-        name: "University of Nebraska Omaha",
-        href: "https://students.studygroup.com/study-options/direct-admit/university-of-nebraska-at-omaha",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/aa6cef5e-0423-4c5a-8ba2-f38d9ec60355/Nebraska_Omaha.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Texas A&M University-Corpus Christi",
-        href: "https://students.studygroup.com/study-options/direct-admit/texas-am-corpus-christi",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/9710a363-3adf-43cc-9082-fc9546696f64/texas.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Towson University",
-        href: "https://students.studygroup.com/study-options/direct-admit/towson-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/e093ab4f-0f4b-4cd8-92b7-5c1daabca702/towson.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Western Washington University",
-        href: "https://students.studygroup.com/study-options/direct-admit/western-washington-university",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/420bc000-4f3f-4d33-9ecb-71ea2dc2731b/wwu.svg?lossless=true&auto=format",
-      },
-    ],
-  },
-  {
-    name: "United Kingdom",
+    name: "UK",
     src: "https://tierceledconsulting.com/wp-content/uploads/destinations/uk.jpeg",
     description:
       "With a rich academic heritage, the UK provides world-class education through historic and innovative institutions known for academic excellence.",
@@ -112,7 +43,8 @@ const destinations = [
       {
         name: "Cardiff",
         href: "https://isc.cardiff.ac.uk/",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/7306bb6f-a21f-4801-bd60-73ed34de6c85/cardiff.svg?lossless=true&auto=format",
+        src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-UK-Universities-2021-06.png",
+        isc_hidden: true
       },
       {
         name: "Durham",
@@ -122,12 +54,8 @@ const destinations = [
       {
         name: "Huddersfield",
         href: "https://www.huddersfieldisc.com/",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/a1077874-9e1e-4c85-90c5-d601c52f7350/huddersfield.svg?lossless=true&auto=format",
-      },
-      {
-        name: "Huddersfield London",
-        href: "https://london.hud.ac.uk/",
-        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/0ea58626-f7f2-4d1f-8d7d-f2bfa1e989ae/huds_london.svg?lossless=true&auto=format",
+        src: "https://logowik.com/content/uploads/images/university-of-huddersfield5613.logowik.com.webp",
+        isc_hidden: true
       },
       {
         name: "Kingston",
@@ -148,6 +76,11 @@ const destinations = [
         name: "LJMU",
         href: "https://www.ljmuisc.com/",
         src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/978ab907-0805-467f-974e-fedb7bdcba8d/ljmu.svg?lossless=true&auto=format",
+      },
+      {
+        name: "Cardiff - Russel Group",
+        href: "https://isc.cardiff.ac.uk/",
+        src: "https://assets-us-01.kc-usercontent.com:443/95d47d95-36b6-00af-a24c-b886ecdfc4a2/7306bb6f-a21f-4801-bd60-73ed34de6c85/cardiff.svg?lossless=true&auto=format",
       },
       {
         name: "RHUL",
@@ -181,63 +114,126 @@ const destinations = [
       },
       // Add more logos here if needed
     ],
-  },
-  {
-    name: "Canada",
-    src: "https://tierceledconsulting.com/wp-content/uploads/destinations/canada.jpeg",
+  }, {
+    name: "USA",
+    src: "https://tierceledconsulting.com/wp-content/uploads/destinations/usa.jpeg",
     description:
-      "Canada offers a welcoming environment with high-quality education, multicultural campuses, and excellent research opportunities.",
-    universities: [
-      "University of Toronto",
-      "McGill University",
-      "University of British Columbia",
-      "University of Waterloo",
-      "Queen's University",
-    ],
+      "Home to world-renowned universities and cutting-edge research institutions, the United States offers unparalleled educational opportunities across diverse fields.",
+
     topFields: [
       "Computer Science",
-      "Environmental Studies",
       "Business",
       "Engineering",
+      "Medical Sciences",
     ],
-  },
-  {
-    name: "Australia",
-    src: "https://tierceledconsulting.com/wp-content/uploads/destinations/aus.jpeg",
-    description:
-      "Known for innovative teaching methods and world-class research, Australian universities provide a unique and globally recognized education.",
-    universities: [
-      "University of Melbourne",
-      "Australian National University",
-      "University of Sydney",
-      "University of Queensland",
-      "Monash University",
-    ],
-    topFields: [
-      "Marine Sciences",
-      "Renewable Energy",
-      "Digital Media",
-      "Biotechnology",
-    ],
-  },
-  {
-    name: "Europe",
-    src: "https://tierceledconsulting.com/wp-content/uploads/destinations/europe.jpeg",
-    description:
-      "Europe offers a rich tapestry of educational experiences, combining centuries-old academic traditions with modern, innovative learning approaches.",
-    universities: [
-      "ETH Zurich",
-      "University of Amsterdam",
-      "Sciences Po Paris",
-      "Technical University of Munich",
-      "University of Copenhagen",
-    ],
-    topFields: [
-      "International Relations",
-      "Design",
-      "Technology",
-      "Sustainable Development",
-    ],
+    partnerGroups: [
+      {
+        groupName: "",
+        logos: [
+          { name: "Western Kentucky University", href: "https://www.wku.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-USA-Universities-2021-01.png" },
+          { name: "New York Institute of Technology", href: "https://www.nyit.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-USA-Universities-2021-02.png" },
+          { name: "Hult International Business School", href: "https://www.hult.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-USA-Universities-2021-03.png" },
+          { name: "Florida International University", href: "https://www.fiu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-USA-Universities-2021-04.png" },
+          { name: "Weber State University", href: "https://www.weber.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Direct-USA-Universities-2021-05.png" }
+        ]
+      },
+      {
+        groupName: "INTO USA",
+        logos: [
+          { name: "Drew", href: "http://www.drew.edu/1/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-01.png" },
+          { name: "Saint Louis University", href: "https://www.slu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-02.png" },
+          { name: "The University of Arizona", href: "https://www.arizona.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-03.png" },
+          { name: "Oregon State University", href: "https://oregonstate.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-04.png" },
+          { name: "George Mason University", href: "https://www2.gmu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-05.png" },
+          { name: "Hofstra University", href: "https://www.hofstra.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-06.png" },
+          { name: "Colorado State University", href: "https://www.colostate.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-07.png" },
+          { name: "University of South Florida", href: "https://www.usf.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-08.png" },
+          { name: "University of Alabama at Birmingham", href: "https://www.uab.edu/home/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-09.png" },
+          { name: "Illinois State University", href: "https://illinoisstate.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-10.png" },
+          { name: "Suffolk University", href: "https://www.suffolk.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-11.png" },
+          { name: "Washington State University", href: "https://wsu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-12.png" },
+          { name: "Glasgow Caledonian University", href: "https://www.gcu.ac.uk/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-13.png" },
+          // NYU was here in thought process, but moved to SHORELIGHT based on HTML section. The item with image ...2021-14.png is NYU.
+          { name: "Fisher College", href: "https://www.fisher.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-15.png" },
+          { name: "New England College", href: "https://www.nec.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-16.png" },
+          { name: "Quinnipiac University", href: "https://www.qu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-17.png" }
+        ]
+      },
+      {
+        groupName: "NAVITAS USA",
+        logos: [
+          { name: "Richard Bland College of William & Mary", href: "https://www.rbc.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Navitas-USA-Universities-2021-01.png" },
+          { name: "University of Massachusetts Boston", href: "https://www.umb.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Navitas-USA-Universities-2021-02.png" },
+          { name: "Queens College", href: "https://www.qc.cuny.edu/Pages/home.aspx", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Navitas-USA-Universities-2021-03.png" },
+          { name: "SAE Institute", href: "https://www.sae.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Navitas-USA-Universities-2021-04.png" }
+        ]
+      },
+      {
+        groupName: "SHORELIGHT USA",
+        logos: [
+          { name: "Adelphi University", href: "https://www.adelphi.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-01.png" },
+          { name: "American University", href: "https://www.american.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-02.png" },
+          { name: "Auburn University", href: "https://www.auburn.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-03.png" },
+          { name: "University of Illinois at Chicago", href: "https://www.uic.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-04.png" },
+          { name: "Florida International University", href: "https://www.fiu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-05.png" },
+          { name: "Louisiana State University", href: "https://www.lsu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-06.png" },
+          { name: "University of Central Florida", href: "https://www.ucf.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-07.png" },
+          { name: "University of Dayton", href: "https://udayton.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-08.png" },
+          { name: "University of Kansas", href: "https://ku.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-09.png" },
+          { name: "University of the Pacific", href: "https://www.pacific.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-10.png" },
+          { name: "University of South Carolina", href: "https://sc.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-11.png" },
+          { name: "The University of Utah", href: "https://www.utah.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-12.png" },
+          { name: "Gonzaga University", href: "https://www.gonzaga.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-13.png" },
+          { name: "American Collegiate", href: "https://americancollegiate.com/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-14.png" },
+          { name: "New York University", href: "https://www.nyu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/INTO-USA-Universities-2021-14.png" }, // Image path is INTO, link had uni_city_name=INTO USA, but placed under SHORELIGHT per section
+          { name: "University of Mississippi", href: "https://olemiss.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-15.png" },
+          { name: "Cleveland State University", href: "https://www.csuohio.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/Shorelight-USA-Universities-2021-16.png" }
+        ]
+      },
+     /*  {
+        groupName: "EDUCO USA",
+        logos: [
+          { name: "Duquesne University", href: "https://www.duq.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-01.png" },
+          { name: "University of Maryland, Baltimore County", href: "https://www.umbc.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-02.png" },
+          { name: "University of Nebraska-Lincoln", href: "https://www.unl.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-03.png" },
+          { name: "Seattle Pacific University", href: "https://spu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-04.png" },
+          { name: "DUKE", href: "https://duke.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-05.png" },
+          { name: "Stevens Institute of Technology", href: "https://www.stevens.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/EDUCO-USA-Universities-2021-06.png" }
+        ]
+      },
+      {
+        groupName: "KAPLAN USA",
+        logos: [
+          { name: "Arizona State University", href: "https://www.asu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/KAPLAN-USA-Universities-2021-01.png" },
+          { name: "Northeastern University", href: "https://www.northeastern.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/KAPLAN-USA-Universities-2021-02.png" },
+          { name: "Pace University", href: "https://www.pace.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/KAPLAN-USA-Universities-2021-03.png" },
+          { name: "The University of Tulsa", href: "https://utulsa.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/KAPLAN-USA-Universities-2021-04.png" },
+          { name: "Simmons University", href: "https://www.simmons.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/KAPLAN-USA-Universities-2021-05.png" }
+        ]
+      }, */
+      {
+        groupName: "SG USA",
+        logos: [
+          { name: "James Madison University", href: "https://www.jmu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-01.png" },
+          { name: "LIU Post", href: "https://liu.edu/post", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-02.png" },
+          { name: "Long Island University Brooklyn", href: "https://liu.edu/brooklyn", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-03.png" },
+          { name: "Western Washington University", href: "https://www.wwu.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-04.png" },
+          { name: "DePaul University", href: "https://www.depaul.edu/Pages/default.aspx", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-08.png" },
+          { name: "Texas A&M University-Corpus Christi", href: "https://tamucc.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-05.png" },
+          { name: "Baylor University", href: "https://www.baylor.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-06.png" },
+          { name: "Lipscomb University", href: "https://www.lipscomb.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-07.png" },
+          { name: "University of Hartford", href: "https://www.hartford.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/SG-USA-Universities-2021-09.png" }
+        ]
+      },
+      /* {
+        groupName: "CEG USA",
+        logos: [
+          { name: "Illinois Institute of Technology", href: "https://www.iit.edu/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/CEG-USA-Universities-2021-01.png" },
+          { name: "CATS Academy Boston", href: "https://www.catsacademyboston.com/", src: "https://www.abneducation.com/wp-content/uploads/2020/12/CEG-USA-Universities-2021-02.png" },
+          { name: "ONCAMPUS Boston", href: "https://www.oncampus.global/cn/usa/campuses/oncampus-boston/welcome.htm", src: "https://www.abneducation.com/wp-content/uploads/2020/12/CEG-USA-Universities-2021-03.png" }
+        ]
+      } */
+    ]
   },
   {
     name: "Ireland",
@@ -257,6 +253,13 @@ const destinations = [
       "Literature",
       "Global Business",
     ],
+    partnerLogos: [
+      {
+        name: "University College Dublin",
+        href: "https://www.ucd.ie/",
+        src: "https://www.abneducation.com/wp-content/uploads/2020/12/IRELAND-Universities-2021-01.png",
+      }
+    ],
   },
 ];
 
@@ -275,11 +278,8 @@ const DestinationsPage = () => {
       <section className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4 mt-16 py-16">
           <div
-            className={`text-center text-tiercel-blue/85 mb-6 max-w-4xl mx-auto transition-all duration-1000 delay-500 transform ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-12"
-            }`}
+            className={`text-center text-blue-900/85 mb-8 max-w-4xl mx-auto transition-all duration-1000 delay-500 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
           >
             <h1 className="text-4xl font-bold text-blue-900 mb-4 flex justify-center items-center gap-3">
               <Globe className="text-blue-600" size={40} />
@@ -291,118 +291,163 @@ const DestinationsPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 gap-6">
+          {/* Destinations Grid */}
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
             {destinations.map((destination) => (
               <div
                 key={destination.name}
                 className={`
-                relative overflow-hidden rounded-xl shadow-lg 
-                transform transition-all duration-1000 delay-700 transform ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
-                } 
-                hover:scale-102 hover:shadow-2xl hover:text-black
-                cursor-pointer
-              `}
-                onClick={() =>
-                  setActiveDestination(
-                    activeDestination === destination.name
-                      ? null
-                      : destination.name
-                  )
-                }
+                  relative overflow-hidden rounded-xl shadow-lg 
+                  transform transition-all duration-700 
+                  ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+                  hover:shadow-xl
+                  cursor-pointer
+                `}
+                onClick={() => setActiveDestination(
+                  activeDestination === destination.name ? null : destination.name
+                )}
               >
                 {/* Background Image */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  className="absolute inset-0 bg-cover bg-center opacity-25"
                   style={{ backgroundImage: `url(${destination.src})` }}
                 />
 
                 {/* Content */}
                 <div className="relative z-10 p-6">
-                  <div className="flex items-center mb-4">
-                    <MapPin
-                      className="text-blue-600 mr-3 text-tiercel-red"
-                      size={24}
-                    />
-                    <h2 className="text-2xl font-bold text-blue-900">
-                      {destination.name}
-                    </h2>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <MapPin className="text-blue-600 mr-3" size={24} />
+                      <h2 className="text-2xl font-bold text-blue-900">{destination.name}</h2>
+                    </div>
+                    {activeDestination === destination.name ? (
+                      <ChevronUp className="text-blue-600" size={24} />
+                    ) : (
+                      <ChevronDown className="text-blue-600" size={24} />
+                    )}
                   </div>
 
-                  <p className="text-gray-700 mb-4 line-clamp-3 hover:text-black">
+                  <p className="text-gray-700 mb-4 line-clamp-3">
                     {destination.description}
                   </p>
-
-                  {/* --- Conditional Rendering for UK Logos --- */}
-                  {destination.name === "United States" ||
-                  (destination.name === "United Kingdom" &&
-                    destination.partnerLogos) ? (
-                    <div className="mb-5">
-                      {/* <h3 className="font-semibold text-blue-800 mb-3 flex items-center">
-                         <University className="mr-2 text-tiercel-red" size={20} />
-                         Partner Institutions
-                       </h3> */}
-                      <div className="p-3 rounded-md">
-                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                          {destination.partnerLogos.map((logo) => (
-                            <a
-                              key={logo.name}
-                              href={logo.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              title={logo.name} // Add tooltip for accessibility
-                              className="flex justify-center items-center p-2 bg-white/20 rounded border border-gray-200 hover:shadow-md transition"
-                            >
-                              <img
-                                src={logo.src}
-                                alt={`${logo.name} logo`}
-                                className="max-h-20 w-auto object-contain" // Adjusted max height
-                              />
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    /* --- Render University List for other countries --- */
-                    <div className="mb-5">
-                      <h3 className="font-semibold text-blue-800 mb-2 flex items-center">
-                        <University
-                          className="mr-2 text-tiercel-red"
-                          size={20}
-                        />
-                        Top Universities
-                      </h3>
-                      <ul className="space-y-1">
-                        {destination.universities.map((uni) => (
-                          <li
-                            key={uni}
-                            className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition"
-                          >
-                            <ChevronRight
-                              className="mr-1 text-tiercel-red flex-shrink-0"
-                              size={14}
-                            />
-                            {uni}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {/* <div className="mt-4 flex justify-between items-center">
-                  <BookOpen className="text-blue-600" size={24} />
-                  <span className="text-blue-800 font-semibold">
-                    {activeDestination === destination.name 
-                      ? 'Collapse Details' 
-                      : 'Explore Destination'}
-                  </span>
-                </div> */}
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Expanded Destination Details */}
+          {activeDestination && (() => {
+            const currentDestinationData = destinations.find(d => d.name === activeDestination);
+            if (!currentDestinationData) return null;
+
+            // USA: Render with Partner Groups
+            if (currentDestinationData.name === "USA" && currentDestinationData.partnerGroups) {
+              return (
+                <div className="mt-8 bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-all duration-500 animate-fadeIn">
+                  <h2 className="text-3xl font-bold text-blue-900 mb-8 flex items-center">
+                    <University className="mr-3 text-blue-600" size={32} />
+                    {activeDestination}
+                  </h2>
+                  {currentDestinationData.partnerGroups.map((group, groupIndex) => (
+                    <div key={group.groupName} className={groupIndex > 0 ? "mt-10" : ""}>
+                      <h3 className="text-2xl font-semibold text-blue-800 mb-5 border-b-2 border-blue-200 pb-3">
+                        {group.groupName}
+                      </h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8">
+                        {group.logos.map((logo) => (
+                          <a
+                            key={logo.name}
+                            href={logo.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={logo.name}
+                            className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 h-44"
+                          >
+                            <img
+                              src={logo.src}
+                              alt={`${logo.name} Logo`}
+                              className="max-h-24 w-auto object-contain mb-3 flex-grow"
+                            />
+                            <span className="font-medium text-sm text-gray-800 text-center break-words leading-tight">
+                              {logo.name}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              );
+            }
+            // Other Countries: Render with partnerLogos (if available)
+            else if (currentDestinationData.partnerLogos && currentDestinationData.partnerLogos.length > 0) {
+              return (
+                <div className="mt-8 bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-all duration-500 animate-fadeIn">
+                  <h2 className="text-3xl font-bold text-blue-900 mb-8 flex items-center">
+                    <University className="mr-3 text-blue-600" size={32} />
+                    {activeDestination} - Partner Universities
+                  </h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8">
+                    {currentDestinationData.partnerLogos.map((logo) => (
+                      <a
+                        key={logo.name}
+                        href={logo.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={logo.name}
+                        className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 h-44"
+                      >
+                        <img
+                          src={logo.src}
+                          alt={`${logo.name} Logo`}
+                          className="max-h-24 w-auto object-contain mb-3 flex-grow"
+                        />
+                        <span className="font-medium text-sm text-gray-800 text-center break-words leading-tight">
+                          {logo.name}
+                        </span>
+                        {/* This was from the original UK example, kept for compatibility if needed for some logos */}
+                        {!logo.isc_hidden && logo.name !== "Cardiff" && ( // Example of specific conditional text
+                          <span className="text-xs text-blue-500 text-center mt-1">
+                            International Study Centre
+                          </span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            // Fallback: Render with universities list (if partnerLogos is not available or empty)
+            else if (currentDestinationData.universities && currentDestinationData.universities.length > 0) {
+              return (
+                <div className="mt-8 bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-all duration-500 animate-fadeIn">
+                  <h2 className="text-3xl font-bold text-blue-900 mb-6 flex items-center">
+                    <University className="mr-3 text-blue-600" size={32} />
+                    {activeDestination} - Featured Universities
+                  </h2>
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <ul className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-3">
+                      {currentDestinationData.universities.map((uni) => (
+                        <li
+                          key={uni}
+                          className="flex items-center text-gray-700 hover:text-blue-700 transition-colors duration-200"
+                        >
+                          <ChevronRight className="mr-2 text-blue-500 flex-shrink-0" size={18} />
+                          <span className="text-base">{uni}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            }
+            // If no specific content to show for the expanded section
+            return (
+              <div className="mt-8 bg-white rounded-xl shadow-xl p-6 transition-all duration-500 animate-fadeIn">
+                <p className="text-gray-600">Further details for {activeDestination} will be available soon.</p>
+              </div>
+            );
+          })()}
         </div>
       </section>
       <Footer />

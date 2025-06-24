@@ -50,11 +50,24 @@ const Navbar = () => {
           >
             Home
           </Link> */}
+          <a
+            href="/#about"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
+            About Us
+          </a>
           <Link
             to="/destinations"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
           >
             Destinations
+          </Link>
+
+          <Link
+            to="/ivy-league"
+            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
+          >
+            Ivy League
           </Link>
           <Link
             to="/ielts"
@@ -71,18 +84,13 @@ const Navbar = () => {
           >
             Services
           </a>
-          <a
+          {/*  <a
             href="/#testimonials"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
           >
             Success Stories
-          </a>
-          <a
-            href="/#about"
-            className="text-tiercel-blue hover:text-tiercel-red transition-colors"
-          >
-            About Us
-          </a>
+          </a> */}
+
           <Link
             to="/#faqs"
             className="text-tiercel-blue hover:text-tiercel-red transition-colors"
@@ -107,19 +115,33 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-tiercel-blue/95 backdrop-blur-lg p-4 shadow-lg text-white">
           <nav className="flex flex-col space-y-4">
-           {/* <Link
+            {/* <Link
               to="/"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link> */}
+            <a
+              href="/#about"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </a>
             <Link
               to="/destinations"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Destinations
+            </Link>
+            <Link
+              to="/ivy-league"
+              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Ivy League
             </Link>
             <Link
               to="/ielts"
@@ -135,20 +157,13 @@ const Navbar = () => {
             >
               Services
             </a>
-            <a
+            {/*  <a
               href="/#testimonials"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Success Stories
-            </a>
-            <a
-              href="/#about"
-              className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </a>
+            </a> */}
             <Link
               to="/faqs"
               className="text-white hover:text-tiercel-red py-2 px-4 transition-colors"
@@ -156,7 +171,7 @@ const Navbar = () => {
             >
               FAQs
             </Link>
-            <Link to="/consultation" className="btn-primary text-center"  onClick={() => setIsOpen(false)}>
+            <Link to="/consultation" className="btn-primary text-center" onClick={() => setIsOpen(false)}>
               Virtual Consultation
             </Link>
           </nav>

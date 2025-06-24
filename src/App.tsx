@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import TopUniversities from './pages/blog/TopUniversities';
 import AceApplicationEssay from './pages/blog/AceApplicationEssay';
 import ScholarshipOpportunities from './pages/blog/ScholarshipOpportunities';
+import IvyLeague from './pages/IvyLeauge';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/ielts" element={<IELTS />} />
+          <Route path="/ivy-league" element={<IvyLeague />} />
           <Route path="/pte" element={<PTE />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/top-universities" element={<TopUniversities />} />

@@ -36,7 +36,7 @@ const Index = () => {
   }, []);
 
   // Popup subscription form
-  useEffect(() => {
+  /* useEffect(() => {
     const timer = setTimeout(() => {
       const popupElement = document.getElementById('subscription-popup');
       if (popupElement) {
@@ -46,7 +46,7 @@ const Index = () => {
     }, 10000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, []); */
 
   const closePopup = () => {
     const popupElement = document.getElementById('subscription-popup');
@@ -67,7 +67,7 @@ const Index = () => {
       {/* <TrustSignals /> */}
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-tiercel-blue mb-6">
             Stay Updated with Education Opportunities

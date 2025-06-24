@@ -126,9 +126,8 @@ const Progress = () => {
             {motivationalContent.map((item, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-xl glass-panel reveal reveal-delay-${
-                  index * 100
-                }`}
+                className={`text-center p-6 rounded-xl glass-panel reveal reveal-delay-${index * 100
+                  }`}
               >
                 <div className="flex justify-center mb-4">{item.icon}</div>
                 <h3 className="text-xl font-bold text-tiercel-gold mb-3">
@@ -141,12 +140,11 @@ const Progress = () => {
 
         </div>
       </section>
-      <section
+      {/* <section
         className="section-container bg-tiercel-white"
       >
         <div className="max-w-7xl mx-auto">
-         
-          {/* Testimonials */}
+
           <div className="text-center mb-12">
             <h6 className="text-tiercel-red font-semibold mb-2 reveal">
               SUCCESS STORIES
@@ -194,7 +192,6 @@ const Progress = () => {
               </div>
             </div>
 
-            {/* Navigation Buttons */}
             <button
               className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white text-tiercel-blue w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-80 hover:opacity-100 transition-opacity"
               onClick={prevSlide}
@@ -209,23 +206,21 @@ const Progress = () => {
               <ChevronRight size={20} />
             </button>
 
-            {/* Dots */}
             <div className="flex items-center justify-center mt-8 space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    index === currentIndex
-                      ? "bg-tiercel-gold w-6"
-                      : "bg-white/30"
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex
+                    ? "bg-tiercel-gold w-6"
+                    : "bg-white/30"
+                    }`}
                   onClick={() => setCurrentIndex(index)}
                 ></button>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
